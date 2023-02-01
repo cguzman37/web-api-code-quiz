@@ -17,7 +17,7 @@ startBtn.addEventListener("click", function () {
     var gameTimer = setInterval(function () {
         timer--;
         timerSpan.textContent = timer;
-        if (timer === 0) {
+        if (timer <= 0) {
             clearInterval(gameTimer)
         }
 
@@ -27,32 +27,61 @@ startBtn.addEventListener("click", function () {
 
 
    function getQuestion(){
-questionEl.textContent= questions[questionCounter].question
-choice1.textContent=questions[questionCounter].answers[0]
-choice2.textContent=questions[questionCounter].answers[1]
-choice3.textContent=questions[questionCounter].answers[2]
-choice4.textContent=questions[questionCounter].answers[3]
+questionEl.textContent= questions[questionCounter].question;
+choice1.textContent=questions[questionCounter].answers[0];
+choice2.textContent=questions[questionCounter].answers[1];
+choice3.textContent=questions[questionCounter].answers[2];
+choice4.textContent=questions[questionCounter].answers[3];
+questionCounter++
 //add time increments/dec/
 
-questionCounter++
+// questionCounter++
 if (questionCounter==questions.length){
     showResults()
 }
    }
+//    document.querySelector('#quizC').addEventListener('click',function (e){
+//     if(e.target.matches('quizC')){
+//         console.log(e.target.textContent);
+//     }
+//    })
 choice1.addEventListener("click", getQuestion)
 choice2.addEventListener("click", getQuestion)
 choice3.addEventListener("click", getQuestion)
 choice4.addEventListener("click", getQuestion)
+// HighScore.addEventListener("click",showResults)
 
    function showResults(event){
-    event.preventDefault();
+    // event.preventDefault();
 console.log(timer)
 var user= input.value
 console.log(user)
 highScore.push({
     initials:user,
     score:timer
-})
+})}
+function evaluateResults(event){
+    // code will go here
+    console.log(event.target.textContent)
+    if(event.target.textContent == questions[questionCounter].correctAnswer){
+        highScore +=5
+        correct.textContent ="Correct"
+    }else{
+        timer -= 5
+        correct.textContent ="Wrong"
+    }
+    if(questionCounter < questions.length-1){
+        questionCounter++;
+        getQuestions()
+    }else{
+        showResults()
+    }
+
+
+
+
+
+
 localStorage.setItem("highscores",JSON.stringify(highScore))
    }
 form.addEventListener("submit", showResults)
@@ -61,3 +90,4 @@ form.addEventListener("submit", showResults)
 //that html js will render scores
 
     //hiding/display and true/false beginning and ending quiz
+   

@@ -1,6 +1,8 @@
 body{
-    font-size: 20px;
-    color: blue;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    
 }
 .question{
     color: brown;
@@ -8,4 +10,41 @@ body{
 
 .answers{
     color:aqua;
+}
+#start{
+    background: purple;
+    color:white;
+    border-radius: 8px;
+}
+#submit{
+    background: purple;
+    color:white;
+    border-radius: 8px;
+}
+
+#choice1{
+    background: purple;
+    color:white;
+    border-radius: 8px; 
+}
+#choice2{
+    background: purple;
+    color:white;
+    border-radius: 8px;
+}
+#choice3{
+    background: purple;
+    color:white;
+    border-radius: 8px;
+}
+#choice4{
+    background: purple;
+    color:white;
+    border-radius: 8px;
+}
+#timer{
+    position: absolute;top:0;right: 0;
+}
+#form{
+    position: absolute;bottom: 0; right: 40%;
 }
