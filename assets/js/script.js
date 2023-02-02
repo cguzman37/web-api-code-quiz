@@ -52,7 +52,7 @@ choice4.addEventListener("click", getQuestion)
 // HighScore.addEventListener("click",showResults)
 
    function showResults(event){
-    // event.preventDefault();
+    event.preventDefault();
 console.log(timer)
 var user= input.value
 console.log(user)
